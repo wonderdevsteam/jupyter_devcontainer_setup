@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  devenv:
+    volumes:
+      - .:/workspace:cached
+      - devenv-home:/home/vscode
+volumes:
+  devenv-home:
+ 

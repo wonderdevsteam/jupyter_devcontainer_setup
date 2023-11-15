@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  devenv:
+    build:
+      context: ./
+      dockerfile: images/Dockerfile
+    volumes:
+      - .:/home/app

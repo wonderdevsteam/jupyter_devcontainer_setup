@@ -1,0 +1,61 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
+{
+	"name": "Jupyter env",
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+		"docker-compose.yml"
+	],
+	"service": "devenv",
+	"workspaceFolder": "/home/app",
+	"postCreateCommand": "cd images/gitutils && ./install.sh && git config --global pull.rebase true",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.linting.flake8Enabled": true,
+				"python.linting.mypyEnabled": true,
+				"python.linting.pylintEnabled": false,
+				"python.linting.enabled": true,
+				"python.formatting.provider": "black",
+				"python.testing.pytestArgs": [],
+				"editor.formatOnPaste": false,
+				"editor.formatOnSave": true,
+				"editor.formatOnType": true,
+				"files.trimTrailingWhitespace": true,
+				"terminal.integrated.profiles.linux": {
+				"zsh": {
+					"path": "/usr/bin/zsh",
+					"args": ["-l"]
+				}
+				},
+				"thunder-client.workspaceRelativePath": ".thunderclient",
+				"thunder-client.showActivityFromCollection": true,
+				"python.linting.banditEnabled": true,
+				"python.formatting.blackArgs": ["--line-length=99"],
+				"coverage-gutters.coverageReportFileName": "coverage/index.html",
+				"coverage-gutters.showLineCoverage": true,
+				"coverage-gutters.showRulerCoverage": true,
+				"python.testing.pytestEnabled": true,
+				"python.terminal.activateEnvInCurrentTerminal": true,
+				"python.languageServer": "Pylance",
+				"python.analysis.autoImportCompletions": true,
+				"[python]": {
+				"editor.codeActionsOnSave": {
+					"source.organizeImports": true
+				}
+				},
+				"files.eol": "\n",
+				"thunder-client.saveToWorkspace": true,
+				"thunder-client.certificates": []
+			},
+			"extensions": [
+				"ms-python.vscode-pylance",
+				"redhat.vscode-yaml",
+				"oderwat.indent-rainbow",
+				"ms-python.python",
+				"Postman.postman-for-vscode",
+				"ms-toolsai.jupyter"
+			]
+		}}
+
+}
